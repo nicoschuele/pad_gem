@@ -5,6 +5,7 @@ module PadGem
   module Menu
 
     def self.ask
+      # TODO: sanitize the values given and provide default options.
       puts
       puts "PadGem #{PadGem::VERSION}"
       puts "************"
