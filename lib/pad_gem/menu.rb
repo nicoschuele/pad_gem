@@ -22,6 +22,7 @@ module PadGem
       options[:homepage] = PadUtils.question_menu("Homepage url for #{options[:gem_name]}")
       options[:gem_ruby_name] = PadUtils.underscore(options[:gem_name])
       options[:year] = Date.today.year.to_s
+      puts
       options
     end
 
