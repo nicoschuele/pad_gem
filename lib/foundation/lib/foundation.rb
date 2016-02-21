@@ -1,5 +1,9 @@
-require "foundation/version"
+require_relative "PADGEM_GEM_RUBY_NAME/version"
 
-module Foundation
+module PADGEM_GEM_NAME
   # Your code goes here...
+
+  def self.main(arg)
+    puts "#{PADGEM_GEM_NAME}: #{arg}"
+  end
 end

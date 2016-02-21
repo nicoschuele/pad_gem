@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/PADGEM_GEM_RUBY_NAME"
+
+PADGEM_GEM_NAME::main ARGV
