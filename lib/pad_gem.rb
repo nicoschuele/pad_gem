@@ -4,17 +4,35 @@ require_relative "pad_gem/menu"
 module PadGem
 
   def self.main(arg)
-    # TODO: implement a no option that displays possible options
 
-    # TODO: implement a -n (--new) option
-      # TODO: build options hash from a cli menu
-      # TODO: call self.create(options)
+    if arg[0] == '-n' || arg[0] == '--new'
+      create(Menu.ask)
+    elsif arg[0] == '-v' || arg[0] == '--version'
+      display_version
+    else
+      display_help
+    end
 
-    # TODO: implement a -v (--version) option
   end
 
   def self.create(options)
-    # TODO: implement creation of the gem based on options hash
+    # TODO: implement creation of the gem based on the options hash
+  end
+
+  def self.display_help
+    puts
+    puts "PadGem #{PadGem::VERSION}"
+    puts "************"
+    puts
+    puts "use padgem --new for creating a new gem."
+    puts
+  end
+
+  def self.display_version
+    puts
+    puts "PadGem #{PadGem::VERSION}"
+    puts "by Nico Schuele (@nicoschuele)"
+    puts
   end
 
 end
