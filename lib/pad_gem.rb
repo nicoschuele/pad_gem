@@ -1,5 +1,6 @@
 require_relative "pad_gem/version"
 require_relative "pad_gem/menu"
+require_relative "pad_gem/generator"
 
 module PadGem
 
