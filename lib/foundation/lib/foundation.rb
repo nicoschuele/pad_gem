@@ -4,6 +4,6 @@ module PADGEM_GEM_NAME
   # Your code goes here...
 
   def self.main(arg)
-    puts "#{PADGEM_GEM_NAME}: #{arg}"
+    puts "PADGEM_GEM_NAME: #{arg}"
   end
 end

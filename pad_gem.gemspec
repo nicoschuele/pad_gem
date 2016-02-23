@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = "PadGem is a simple gem generator and part of the Padstone app builder"
   spec.homepage      = "http://padstone.io"
   spec.license       = "Apache-2.0"
-  spec.files         = Dir["{lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  spec.files         = Dir["{lib}/**/*", "{foundation}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
   spec.executables   << 'padgem'
   spec.require_paths = ["lib"]
   spec.add_dependency 'pad_utils', '>=1.2', '< 2.0'

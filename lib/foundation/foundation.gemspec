@@ -14,6 +14,6 @@ Gem::Specification.new do |spec|
   spec.homepage      = "PADGEM_HOMEPAGE"
   spec.license       = "Apache-2.0"
   spec.files         = Dir["{lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
-  spec.executables   << 'PADGEM_GEM_RUBY_NAME'
+  spec.executables   << 'PADGEM_EXECUTABLE'
   spec.require_paths = ["lib"]
 end
