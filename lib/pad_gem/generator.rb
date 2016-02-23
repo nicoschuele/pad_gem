@@ -3,7 +3,6 @@ require 'pad_utils'
 module PadGem
   module Generator
 
-
     def self.generate(options)
       # Don't start generation if directory exists
       if PadUtils.file_exist?(options[:gem_ruby_name])

@@ -5,7 +5,6 @@ require_relative "pad_gem/generator"
 module PadGem
 
   def self.main(arg)
-
     if arg[0] == '-n' || arg[0] == '--new'
       create(Menu.ask)
     elsif arg[0] == '-v' || arg[0] == '--version'
@@ -13,11 +12,20 @@ module PadGem
     else
       display_help
     end
-
   end
 
   def self.create(options)
-    # TODO: implement creation of the gem based on the options hash
+    result = Generator.generate(options)
+    if result == "success"
+      puts
+      puts "#{options[:gem_name]} created in #{options[:gem_ruby_name]}"
+      puts
+    else
+      puts
+      puts "Something went wrong and #{options[:gem_name]} was not created."
+      puts "Status: #{result}"
+      puts
+    end
   end
 
   def self.display_help
@@ -25,7 +33,7 @@ module PadGem
     puts "PadGem #{PadGem::VERSION}"
     puts "************"
     puts
-    puts "use padgem --new for creating a new gem."
+    puts "use padgem --new (or -n) for creating a new gem."
     puts
   end
 
