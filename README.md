@@ -1,9 +1,28 @@
 # PadGem
 
-Gem generator. Part of the Padstone app builder. More info at [Padstone.io](http://padstone.io).
+PadGem is a Ruby gem generator. Part of the Padstone app builder. More info at [Padstone.io](http://padstone.io).
+
+## Installation
+
+Install it like any other Ruby gem:
+
+`gem install pad_gem`
+
+## Usage
+
+To create a new gem, simply issue `padgem --new` in your terminal and follow the wizard.
+
+## Notes
+
+* Doesn't work on Windows (and probably never will except if somebody forks it and submits a pull request with the necessary changes).
+* Although it works just fine, PadGem was not designed to be used as a standalone CLI utility. Thus, the things you set in the wizard are not checked and may fail miserably.
 
 ## Documentation
-For documentation and how-to guides, visit [Padstone.io](http://padstone.io).
+For more documentation and how-to guides, visit [Padstone.io](http://padstone.io).
+
+## Contribute
+
+Make sure you [contact me](https://twitter.com/nicoschuele) before submitting a pull request: I don't want you to waste your time.
 
 ## License
 
