@@ -3,17 +3,17 @@ require 'PADGEM_GEM_RUBY_NAME'
 
 class Test
 
-  attr_accessor :test_name, :errors, :notes
+  attr_accessor :test_name, :errors, :notes, :result
 
   def initialize(test_name)
     @test_name = test_name
     @errors = []
     @notes = []
+    @result = {name: test_name, errors: @errors.length}
   end
 
   def explain
     puts
-    PadUtils.puts_c "--------------------", :green
     PadUtils.puts_c "Running: #{@test_name}...", :green
     puts
   end
@@ -61,6 +61,8 @@ class Test
     runner
     cleanup
     leave
+    @result[:errors] = @errors.length
+    @result
   end
 
   def runner

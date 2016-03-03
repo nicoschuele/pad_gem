@@ -5,7 +5,7 @@ require_relative '../template/test'
 # Test name
 test_name = "TEST_NAME"
 
-class Tester < Test
+class CLASS_TEST_NAME < Test
 
   def prepare
     # Add test preparation here
@@ -28,7 +28,3 @@ class Tester < Test
   end
 
 end
-
-# This will run the test automatically when calling test_runner.rb
-t = Tester.new(test_name)
-t.run

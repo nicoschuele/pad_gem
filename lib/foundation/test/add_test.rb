@@ -9,7 +9,7 @@ camel = PadUtils.camel_case underscored
 file_name = "units/#{underscored}_test.rb"
 
 PadUtils.copy_file("template/template.rb", file_name)
+PadUtils.replace_in_file(file_name, /CLASS_TEST_NAME/, "#{camel}Test")
 PadUtils.replace_in_file(file_name, /TEST_NAME/, camel)
-puts
-PadUtils.puts_c "New test added: #{file_name}"
+
 puts

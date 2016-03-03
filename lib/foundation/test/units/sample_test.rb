@@ -3,9 +3,9 @@ require 'PADGEM_GEM_RUBY_NAME'
 require_relative '../template/test'
 
 # Test name
-test_name = "SampleTest"
+test_name = "Sample"
 
-class Tester < Test
+class SampleTest < Test
 
   def prepare
     puts "I'm preparing..."
@@ -20,6 +20,3 @@ class Tester < Test
   end
 
 end
-
-t = Tester.new(test_name)
-t.run
