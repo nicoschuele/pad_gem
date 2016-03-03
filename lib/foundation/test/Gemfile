@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+gem "pad_utils", ">= 1.5"
+
+gem 'PADGEM_GEM_RUBY_NAME', path: "../"
