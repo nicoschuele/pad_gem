@@ -16,5 +16,5 @@ Gem::Specification.new do |spec|
   spec.files         = Dir["{lib}/**/*", "{lib}/**/.*", "{foundation}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
   spec.executables   << 'padgem'
   spec.require_paths = ["lib"]
-  spec.add_dependency 'pad_utils', '>=1.2', '< 2.0'
+  spec.add_dependency 'pad_utils', '>=1.6', '< 2.0'
 end
