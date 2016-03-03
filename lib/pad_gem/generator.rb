@@ -64,6 +64,21 @@ module PadGem
         # lib/foundation/version.rb
         PadUtils.replace_in_file("lib/foundation/version.rb", /PADGEM_GEM_NAME/, options[:gem_name])
 
+        # test/test_runner.rb
+        PadUtils.replace_in_file("test/test_runner.rb", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+
+        # test/Gemfile
+        PadUtils.replace_in_file("test/Gemfile", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+
+        # test/units/sample_test.rb
+        PadUtils.replace_in_file("test/units/sample_test.rb", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+
+        # test/template/template.rb
+        PadUtils.replace_in_file("test/template/template.rb", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+
+        # test/template/test.rb
+        PadUtils.replace_in_file("test/template/test.rb", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+
       end
     end
 
