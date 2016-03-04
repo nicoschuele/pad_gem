@@ -3,23 +3,25 @@ require 'pad_utils'
 module PadGem
   module Generator
 
-    def self.generate(options)
+    def self.generate(options, path = nil)
+      target_path = path == nil ? options[:gem_ruby_name] : "#{path}/#{options[:gem_ruby_name]}"
+
       # Don't start generation if directory exists
-      if PadUtils.file_exist?(options[:gem_ruby_name])
+      if PadUtils.file_exist?(target_path)
         return "A directory with the name of this gem already exists."
       end
 
       # Copy the foundation template
-      copy_foundation(options[:gem_ruby_name])
+      copy_foundation(target_path)
 
       # Replace the placeholder texts in newly copied foundation
-      replace_placeholders(options)
+      replace_placeholders(options, path)
 
       # Rename files according to the new gem name
-      rename_files(options)
+      rename_files(options, path)
 
       # Make the executable ...well... executable
-      system "chmod +x #{options[:gem_ruby_name]}/bin/#{options[:executable]}"
+      system "chmod +x #{target_path}/bin/#{options[:executable]}"
 
       # Return success
       "success"
@@ -35,9 +37,10 @@ module PadGem
       PadUtils.copy_all_files("#{padgem_dir}/foundation", dir_name)
     end
 
-    def self.replace_placeholders(options)
+    def self.replace_placeholders(options, path = nil)
       # Within the new gem dir
-      Dir.chdir "#{options[:gem_ruby_name]}" do
+      target_path = path == nil ? options[:gem_ruby_name] : "#{path}/#{options[:gem_ruby_name]}"
+      Dir.chdir "#{target_path}" do
 
         # README.md
         PadUtils.replace_in_file("README.md", /PADGEM_GEM_NAME/, options[:gem_name])
@@ -82,9 +85,10 @@ module PadGem
       end
     end
 
-    def self.rename_files(options)
+    def self.rename_files(options, path = nil)
       # Within the new gem dir
-      Dir.chdir "#{options[:gem_ruby_name]}" do
+      target_path = path == nil ? options[:gem_ruby_name] : "#{path}/#{options[:gem_ruby_name]}"
+      Dir.chdir "#{target_path}" do
 
         # bin/exec
         PadUtils.move_file("bin/exec", "bin/#{options[:executable]}")

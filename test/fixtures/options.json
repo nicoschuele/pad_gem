@@ -1,0 +1,10 @@
+{
+  "gem_name": "FooBar",
+  "executable": "fbar",
+  "ruby_version": "2.2",
+  "author": "Clint Eastwood",
+  "email": "clint@example.com",
+  "homepage": "http://example.com",
+  "gem_ruby_name": "foo_bar",
+  "year": "2016"
+}
