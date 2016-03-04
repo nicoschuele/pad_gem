@@ -20,14 +20,24 @@ module PadGem
       # Rename files according to the new gem name
       rename_files(options, path)
 
-      # Make the executable ...well... executable
-      system "chmod +x #{target_path}/bin/#{options[:executable]}"
+      if options[:executable]
+        # Make the executable ...well... executable
+        system "chmod +x #{target_path}/bin/#{options[:executable]}"
+      else
+        # Or delete it and remove traces of it in gemspec
+        PadUtils.delete_directory "#{target_path}/bin"
+        PadUtils.replace_line_containing(
+        "spec.executables",
+        in_file: "#{target_path}/#{options[:gem_ruby_name]}.gemspec",
+        new_value: ""
+        )  
+      end
 
       # Return success
       "success"
 
     rescue Exception => e
-      PadUtils.log_path = "#{ENV["HOME"]}/pad_gem_logs"
+      PadUtils.set_log_path "#{ENV["HOME"]}/pad_gem_logs"
       PadUtils.log("An error happened while generating the new gem", e)
       "failure"
     end
@@ -57,8 +67,8 @@ module PadGem
         PadUtils.replace_in_file("foundation.gemspec", /PADGEM_EXECUTABLE/, options[:executable])
 
         # bin/exec
-        PadUtils.replace_in_file("bin/exec", /PADGEM_GEM_NAME/, options[:gem_name])
-        PadUtils.replace_in_file("bin/exec", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+        PadUtils.replace_in_file("bin/exec", /PADGEM_GEM_NAME/, options[:gem_name]) if options[:executable]
+        PadUtils.replace_in_file("bin/exec", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name]) if options[:executable]
 
         # lib/foundation.rb
         PadUtils.replace_in_file("lib/foundation.rb", /PADGEM_GEM_NAME/, options[:gem_name])
@@ -91,7 +101,7 @@ module PadGem
       Dir.chdir "#{target_path}" do
 
         # bin/exec
-        PadUtils.move_file("bin/exec", "bin/#{options[:executable]}")
+        PadUtils.move_file("bin/exec", "bin/#{options[:executable]}") if options[:executable]
 
         # foundation.gemspec
         PadUtils.move_file("foundation.gemspec", "#{options[:gem_ruby_name]}.gemspec")

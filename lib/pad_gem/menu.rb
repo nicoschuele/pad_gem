@@ -15,7 +15,12 @@ module PadGem
       options[:gem_name] = PadUtils.question_menu("Name of your gem")
       options[:gem_name] = PadUtils.sanitize(options[:gem_name])
       options[:gem_name] = PadUtils.convert_to_ruby_name(options[:gem_name])
-      options[:executable] = PadUtils.question_menu("Gem executable name")
+      sets_executable = PadUtils.yes_no_menu(question: "Add an executable?")
+      if sets_executable
+        options[:executable] = PadUtils.question_menu("Gem executable name")
+      else
+        options[:executable] = nil
+      end
       options[:ruby_version] = PadUtils.question_menu("Minimum Ruby version")
       options[:author] = PadUtils.question_menu("Your name")
       options[:email] = PadUtils.question_menu("Your email address")

@@ -1,0 +1,10 @@
+{
+  "gem_name": "BarFoo",
+  "executable":null,
+  "ruby_version": "2.2",
+  "author": "Clint Eastwood",
+  "email": "clint@example.com",
+  "homepage": "http://example.com",
+  "gem_ruby_name": "bar_foo",
+  "year": "2016"
+}
