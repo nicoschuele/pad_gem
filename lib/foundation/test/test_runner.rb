@@ -8,6 +8,9 @@ start_time = Time.now
 number_of_tests = 0
 errors_list = []
 
+# Add preconditions to running tests just below this line.
+# For example, ENV['MY_APP'] = 'development'
+
 puts
 
 PadUtils.puts_c "Running tests...", :blue

@@ -6,7 +6,7 @@ require 'pad_gem/version'
 Gem::Specification.new do |spec|
   spec.name          = "pad_gem"
   spec.version       = PadGem::VERSION
-  spec.required_ruby_version = '>= 2.2'
+  spec.required_ruby_version = '>= 2.2.2'
   spec.authors       = ["Nico Schuele"]
   spec.email         = ["help@padstone.io"]
   spec.summary       = "Gem generator"
@@ -16,5 +16,5 @@ Gem::Specification.new do |spec|
   spec.files         = Dir["{lib}/**/*", "{lib}/**/.*", "{foundation}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
   spec.executables   << 'padgem'
   spec.require_paths = ["lib"]
-  spec.add_dependency 'pad_utils', '>=1.6', '< 2.0'
+  spec.add_dependency 'pad_utils', '>=1.13', '< 2.0'
 end
