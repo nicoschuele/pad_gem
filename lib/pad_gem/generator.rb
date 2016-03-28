@@ -30,7 +30,7 @@ module PadGem
         "spec.executables",
         in_file: "#{target_path}/#{options[:gem_ruby_name]}.gemspec",
         new_value: ""
-        )  
+        )
       end
 
       # Return success
@@ -91,6 +91,9 @@ module PadGem
 
         # test/template/test.rb
         PadUtils.replace_in_file("test/template/test.rb", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
+
+        # test/manual/manual.rb
+        PadUtils.replace_in_file("test/manual/manual.rb", /PADGEM_GEM_RUBY_NAME/, options[:gem_ruby_name])
 
       end
     end

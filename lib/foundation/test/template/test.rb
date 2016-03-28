@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler/setup'
 require 'pad_utils'
 require 'PADGEM_GEM_RUBY_NAME'
 

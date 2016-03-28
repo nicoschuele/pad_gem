@@ -9,7 +9,7 @@ class GeneratorTest < Test
 
   def prepare
     # Deletes directory if it already exists
-    PadUtils.delete_directory("results/foo_bar")
+    PadUtils.delete_directory("results/foo_bar") if PadUtils.file_exist?("results/foo_bar")
   end
 
   def run_test
